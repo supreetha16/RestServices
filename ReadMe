@@ -1,0 +1,11 @@
+bring up civet web
+
+1) make help
+2) make slib
+3) make install-slib
+
+compile c++ code
+
+1) gcc -o myprog CivetWeb_Example2.cpp -L/usr/local/lib -lcivetweb
+2) ./myprog
+3) try this in browser - http://localhost:8888/example
