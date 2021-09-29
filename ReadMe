@@ -1,19 +1,37 @@
-bring up civet web
+Aim : To bring up REST services using c++
+===   using civetweb server to achieve server capability
+      create a docker image fror this project
+      push the docker image
 
-1) make help
-2) make slib
-3) make install-slib
+component 1 - Civetweb
+===========
+1)git repo for civetweb : https://github.com/civetweb/civetweb
+2)clone the repo
+3)cd civetweb
+4)make slib
+5)make install-slib
+6)now all the libraries(.so) will be stored in /usr/local/lib
 
-compile c++ code
+component 2 - RestService
+===========
+1) git repo : https://github.com/supreetha16/RestServices.git
+2) Clone the repo
+3) cd RestServices
+4) export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+5) for local compilation
+    a) gcc -o myprog CivetWeb_Example2.cpp -I <path>/civetweb/include -L/usr/local/lib -lcivetweb
+    b) ./myprog
+    c) try this in browser - http://localhost:8888/example
+6) to create docker image
+    a) sudo docker build -t supreetha16/civet_rest_service:1.0 .
+7) run the docker image
+    a) sudo docker run -p 8888:8888 -it resupreetha16/civet_rest_service:1.0
+    b) try this in browser - http://localhost:8888/example
 
 
-1) gcc -o myprog CivetWeb_Example2.cpp -I /home/niranjan/projects/civetweb/include -L/usr/local/lib -lcivetweb
-2) ./myprog
-3) try this in browser - http://localhost:8888/example
-
-Docker build :
-1) inside RestServices
-2) sudo docker build -t restservice/cpp:1.0 .
-3) sudo docker run -p 8888:8888 -it restservice/cpp:1.0
-4) in browser run : http://localhost:8888/example
-5) to exit : http://localhost:8888/exit
+Links
+=====
+1) Amy tabb - intro to docker images creation : https://amytabb.com/ts/2018_07_28/
+2) Docker push : https://www.section.io/engineering-education/docker-push-for-publishing-images-to-docker-hub/
+3) Docker file example : https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/
+4) docker image stored at : https://hub.docker.com/repository/docker/supreetha16/civet_rest_service
