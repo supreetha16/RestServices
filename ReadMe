@@ -13,7 +13,7 @@ compile c++ code
 
 Docker build :
 1) inside RestServices
-2) sudo docker build -t newtest0 .
-3) sudo docker run -p 8888:8888 -it newtest0
+2) sudo docker build -t restservice/cpp:1.0 .
+3) sudo docker run -p 8888:8888 -it restservice/cpp:1.0
 4) in browser run : http://localhost:8888/example
 5) to exit : http://localhost:8888/exit
