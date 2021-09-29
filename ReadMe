@@ -6,6 +6,14 @@ bring up civet web
 
 compile c++ code
 
-1) gcc -o myprog CivetWeb_Example2.cpp -L/usr/local/lib -lcivetweb
+
+1) gcc -o myprog CivetWeb_Example2.cpp -I /home/niranjan/projects/civetweb/include -L/usr/local/lib -lcivetweb
 2) ./myprog
 3) try this in browser - http://localhost:8888/example
+
+Docker build :
+1) inside RestServices
+2) sudo docker build -t newtest0 .
+3) sudo docker run -p 8888:8888 -it newtest0
+4) in browser run : http://localhost:8888/example
+5) to exit : http://localhost:8888/exit
